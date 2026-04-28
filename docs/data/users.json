@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "name": "Juan Dela Cruz",
+    "email": "juan@lgu.local",
+    "role": "LGU Officer",
+    "lgu": "Manila City",
+    "status": "Active",
+    "created_at": "2024-01-15T10:00:00Z"
+  },
+  {
+    "id": 2,
+    "name": "Maria Santos",
+    "email": "maria@lgu.local",
+    "role": "LGU Coordinator",
+    "lgu": "Quezon City",
+    "status": "Active",
+    "created_at": "2024-02-20T14:30:00Z"
+  },
+  {
+    "id": 3,
+    "name": "Pedro Reyes",
+    "email": "pedro@agency.local",
+    "role": "Agency Head",
+    "agency": "Bureau of Fire Protection",
+    "status": "Active",
+    "created_at": "2024-03-10T09:00:00Z"
+  },
+  {
+    "id": 4,
+    "name": "Angela Gomez",
+    "email": "angela@imt.local",
+    "role": "IMT Coordinator",
+    "agency": "IMT",
+    "status": "Active",
+    "created_at": "2024-01-25T11:00:00Z"
+  }
+]

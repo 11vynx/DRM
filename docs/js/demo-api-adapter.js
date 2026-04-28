@@ -18,6 +18,11 @@ const DEMO_API_ADAPTER = {
     "/api/admin/all-incidents": "./data/incidents.json",
     "/api/admin/portals": "./data/portals.json",
     "/api/agency-manifests": "./data/manifests.json",
+    "/api/admin/lgu-users": "./data/users.json",
+    "/api/admin/agency-users": "./data/users.json",
+    "/api/admin/imt-users": "./data/users.json",
+    "/api/admin/agency-check-ins": "./data/check-ins.json",
+    "/api/admin/post-incident-reports": "./data/reports.json",
   },
 
   // API response wrappers - customize how data is returned
@@ -29,19 +34,19 @@ const DEMO_API_ADAPTER = {
       return { portals: data };
     }
     if (pathname.startsWith("/api/admin/agency-check-ins")) {
-      return { checkIns: data || [] };
+      return { checkIns: data };
     }
     if (pathname.startsWith("/api/admin/post-incident-reports")) {
-      return { reports: data || [] };
+      return { reports: data };
     }
     if (pathname.startsWith("/api/admin/lgu-users")) {
-      return { users: data || [] };
+      return { users: data };
     }
     if (pathname.startsWith("/api/admin/agency-users")) {
-      return { users: data || [] };
+      return { users: data };
     }
     if (pathname.startsWith("/api/admin/imt-users")) {
-      return { users: data || [] };
+      return { users: data };
     }
     return data;
   },
@@ -331,15 +336,18 @@ const DEMO_API_ADAPTER = {
 
 // Override fetch globally
 const originalFetch = window.fetch;
-window.fetch = function (url, options = {}) {
+window.fetch = async function (url, options = {}) {
   // Check if this is an API call
   if (DEMO_API_ADAPTER.isApiCall(url)) {
+    console.debug(`[DEMO API] Intercepting: ${url}`);
     // Try to handle with demo adapter
-    const demoResponse = DEMO_API_ADAPTER.handleFetch(url, options);
+    const demoResponse = await DEMO_API_ADAPTER.handleFetch(url, options);
     if (demoResponse && demoResponse instanceof Promise) {
-      return demoResponse;
+      return await demoResponse;
     } else if (demoResponse) {
       return Promise.resolve(demoResponse);
+    } else {
+      console.warn(`[DEMO API] No response from adapter for: ${url}`);
     }
   }
 
