@@ -10,14 +10,14 @@ const DEMO_API_ADAPTER = {
 
   // Demo data map - route patterns to data files
   dataMap: {
-    "/api/lgus": "/data/lgus.json",
-    "/api/barangays": "/data/barangays.json",
-    "/api/equipment": "/data/equipment.json",
-    "/api/vehicles": "/data/vehicles.json",
-    "/api/personnel": "/data/personnel.json",
-    "/api/admin/all-incidents": "/data/incidents.json",
-    "/api/admin/portals": "/data/portals.json",
-    "/api/agency-manifests": "/data/manifests.json",
+    "/api/lgus": "./data/lgus.json",
+    "/api/barangays": "./data/barangays.json",
+    "/api/equipment": "./data/equipment.json",
+    "/api/vehicles": "./data/vehicles.json",
+    "/api/personnel": "./data/personnel.json",
+    "/api/admin/all-incidents": "./data/incidents.json",
+    "/api/admin/portals": "./data/portals.json",
+    "/api/agency-manifests": "./data/manifests.json",
   },
 
   // API response wrappers - customize how data is returned
@@ -278,6 +278,10 @@ const DEMO_API_ADAPTER = {
           // Wrap the response with proper structure
           const wrappedResponse = this.wrapApiResponse(pathname, data);
           return this.createResponse(wrappedResponse);
+        } else {
+          // If data loading failed, return empty response with proper structure
+          const emptyResponse = this.wrapApiResponse(pathname, []);
+          return this.createResponse(emptyResponse);
         }
       }
 
