@@ -2,7 +2,8 @@
   {
     "id": 1,
     "portal_location": "Base",
-    "incident_id": 1,
+    "activated_incident_id": 1,
+    "portal_url": "manifest-base.html",
     "status": "Active",
     "created_at": "2024-04-15T14:30:00Z",
     "last_updated": "2024-04-28T10:00:00Z"
@@ -10,7 +11,8 @@
   {
     "id": 2,
     "portal_location": "Camp",
-    "incident_id": 1,
+    "activated_incident_id": 1,
+    "portal_url": "manifest-camp.html",
     "status": "Active",
     "created_at": "2024-04-16T08:00:00Z",
     "last_updated": "2024-04-28T10:00:00Z"
@@ -18,7 +20,8 @@
   {
     "id": 3,
     "portal_location": "Staging Area",
-    "incident_id": 2,
+    "activated_incident_id": 2,
+    "portal_url": "manifest-staging.html",
     "status": "Active",
     "created_at": "2024-04-20T08:30:00Z",
     "last_updated": "2024-04-28T10:00:00Z"
@@ -26,7 +29,8 @@
   {
     "id": 4,
     "portal_location": "ICP",
-    "incident_id": 1,
+    "activated_incident_id": 1,
+    "portal_url": "manifest-icp.html",
     "status": "Active",
     "created_at": "2024-04-18T10:00:00Z",
     "last_updated": "2024-04-28T10:00:00Z"

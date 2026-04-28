@@ -20,6 +20,32 @@ const DEMO_API_ADAPTER = {
     "/api/agency-manifests": "/data/manifests.json",
   },
 
+  // API response wrappers - customize how data is returned
+  wrapApiResponse(pathname, data) {
+    if (pathname === "/api/admin/all-incidents") {
+      return { incidents: data };
+    }
+    if (pathname === "/api/admin/portals") {
+      return { portals: data };
+    }
+    if (pathname.startsWith("/api/admin/agency-check-ins")) {
+      return { checkIns: data || [] };
+    }
+    if (pathname.startsWith("/api/admin/post-incident-reports")) {
+      return { reports: data || [] };
+    }
+    if (pathname.startsWith("/api/admin/lgu-users")) {
+      return { users: data || [] };
+    }
+    if (pathname.startsWith("/api/admin/agency-users")) {
+      return { users: data || [] };
+    }
+    if (pathname.startsWith("/api/admin/imt-users")) {
+      return { users: data || [] };
+    }
+    return data;
+  },
+
   /**
    * Load demo data from JSON files
    */
@@ -249,8 +275,34 @@ const DEMO_API_ADAPTER = {
             return this.createResponse(manifest || {});
           }
 
-          return this.createResponse(data);
+          // Wrap the response with proper structure
+          const wrappedResponse = this.wrapApiResponse(pathname, data);
+          return this.createResponse(wrappedResponse);
         }
+      }
+
+      // Provide fallback data for unmapped endpoints
+      if (pathname === "/api/admin/agency-check-ins") {
+        return this.createResponse({ checkIns: [] });
+      }
+      if (pathname === "/api/admin/post-incident-reports") {
+        return this.createResponse({ reports: [] });
+      }
+      if (pathname.startsWith("/api/admin/lgu-users")) {
+        return this.createResponse({ users: [] });
+      }
+      if (pathname.startsWith("/api/admin/agency-users")) {
+        return this.createResponse({ users: [] });
+      }
+      if (pathname.startsWith("/api/admin/imt-users")) {
+        return this.createResponse({ users: [] });
+      }
+      if (pathname === "/api/map/config") {
+        return this.createResponse({
+          center: [14.5995, 120.9842],
+          zoom: 10,
+          provider: "OpenStreetMap",
+        });
       }
     }
 
