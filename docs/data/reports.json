@@ -2,31 +2,34 @@
   {
     "id": 1,
     "incident_id": 1,
+    "incident_title": "Flash Flood in Koronadal City",
     "agency_name": "Bureau of Fire Protection",
     "report_type": "Situation Report",
     "report_date": "2024-04-15T18:00:00Z",
-    "content": "Fire incident controlled. 2 houses affected. No casualties reported.",
-    "submitted_by": "Chief Lopez",
+    "content": "Flash flood in Barangay Calinog. 150 families affected. Rescue operations ongoing.",
+    "submitted_by": "Chief Cruz",
     "status": "Submitted"
   },
   {
     "id": 2,
     "incident_id": 2,
+    "incident_title": "Tropical Storm Damage in General Santos",
     "agency_name": "DSWD",
     "report_type": "Assessment Report",
     "report_date": "2024-04-20T10:00:00Z",
-    "content": "Tondo flood assessment. 500 families affected. Evacuation ongoing.",
+    "content": "Storm damage assessment in Dadiangas District. 300 families affected. Relief distribution ongoing.",
     "submitted_by": "Officer Santos",
     "status": "Submitted"
   },
   {
     "id": 3,
     "incident_id": 1,
+    "incident_title": "Flash Flood in Koronadal City",
     "agency_name": "Philippine National Police",
     "report_type": "Security Report",
     "report_date": "2024-04-16T08:00:00Z",
-    "content": "Security perimeter established. Looting prevented.",
-    "submitted_by": "Col. Cruz",
+    "content": "Security perimeter established. Evacuation centers secured. No security incidents reported.",
+    "submitted_by": "Col. Reyes",
     "status": "Submitted"
   }
 ]

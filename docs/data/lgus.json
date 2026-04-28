@@ -1,7 +1,7 @@
 [
-  { "id": 1, "name": "Manila City" },
-  { "id": 2, "name": "Quezon City" },
-  { "id": 3, "name": "Caloocan City" },
-  { "id": 4, "name": "Las Piñas City" },
-  { "id": 5, "name": "Makati City" }
+  { "id": 1, "name": "Koronadal City" },
+  { "id": 2, "name": "General Santos City" },
+  { "id": 3, "name": "Tacurong City" },
+  { "id": 4, "name": "Polomolok" },
+  { "id": 5, "name": "Lake Sebu" }
 ]
