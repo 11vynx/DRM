@@ -1,0 +1,239 @@
+html {
+  scroll-behavior: smooth;
+}
+
+#myIncidentsSection {
+  scroll-margin-top: 20px;
+}
+
+.table-responsive {
+  overflow-x: auto;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+}
+
+.table {
+  margin-bottom: 0;
+}
+
+.table thead {
+  background: #f7fafc;
+  border-bottom: 2px solid #e2e8f0;
+}
+
+.table thead th {
+  font-weight: 600;
+  color: #2d3748;
+  padding: 1rem;
+  border: none;
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.table tbody td {
+  padding: 0.875rem 1rem;
+  vertical-align: middle;
+  border-bottom: 1px solid #f0f0f0;
+  color: #4a5568;
+}
+
+.table tbody tr:hover {
+  background-color: #f7fafc;
+  transition: background-color 0.15s ease;
+}
+
+.table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.badge {
+  padding: 0.375rem 0.75rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  border-radius: 4px;
+  letter-spacing: 0.3px;
+}
+
+.bg-orange {
+  background-color: #ff6b35 !important;
+}
+
+.btn-sm {
+  padding: 0.25rem 0.5rem;
+  font-size: 0.875rem;
+}
+
+.btn-outline-primary {
+  color: #2d3748;
+  border-color: #2d3748;
+}
+
+.btn-outline-primary:hover {
+  background-color: #2d3748;
+  color: white;
+}
+
+#myIncidentsSection h4 {
+  color: #2d3748;
+  font-weight: 600;
+}
+
+#noIncidentsMessage {
+  color: #718096;
+}
+
+#noIncidentsMessage .bi-inbox {
+  color: #cbd5e0;
+}
+
+#toggleIncidentsButton {
+  padding: 0.75rem 2rem;
+  font-weight: 500;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+  border-color: #2d3748;
+  color: #2d3748;
+}
+
+#toggleIncidentsButton:hover {
+  background-color: #2d3748;
+  color: white;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#toggleIncidentsButton i {
+  margin-right: 0.5rem;
+}
+
+#reportFormSection,
+#myIncidentsSection {
+  animation: fadeIn 0.3s ease-in;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.btn-outline-secondary {
+  border-color: #718096;
+  color: #718096;
+  transition: all 0.2s ease;
+}
+
+.btn-outline-secondary:hover {
+  background-color: #718096;
+  border-color: #718096;
+  color: white;
+}
+
+.incident-row {
+  transition: all 0.2s ease;
+}
+
+.incident-row:hover {
+  background-color: #f0f4f8 !important;
+  transform: scale(1.01);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.incident-row:active {
+  transform: scale(0.99);
+}
+
+.incident-details-content {
+  padding: 0.5rem;
+}
+
+.detail-card {
+  background: #f8f9fa;
+  border-radius: 8px;
+  padding: 1rem;
+  height: 100%;
+  transition: all 0.2s ease;
+}
+
+.detail-card:hover {
+  background: #e9ecef;
+  transform: translateX(2px);
+}
+
+.detail-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: #6c757d;
+  margin-bottom: 0.5rem;
+  display: block;
+  letter-spacing: 0.5px;
+}
+
+.detail-label i {
+  margin-right: 0.5rem;
+  color: #2d3748;
+}
+
+.detail-value {
+  font-size: 1rem;
+  color: #2d3748;
+  font-weight: 500;
+}
+
+.detail-description {
+  line-height: 1.6;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  background: white;
+  padding: 0.75rem;
+  border-radius: 4px;
+  border: 1px solid #e2e8f0;
+}
+
+.modal-content {
+  border-radius: 12px;
+  border: none;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+}
+
+.modal-header {
+  border-radius: 12px 12px 0 0;
+  padding: 1.25rem 1.5rem;
+  border-bottom: 2px solid #4a5568;
+}
+
+.modal-body {
+  padding: 1.5rem;
+  max-height: 70vh;
+  overflow-y: auto;
+}
+
+.modal-footer {
+  border-top: 1px solid #e2e8f0;
+  padding: 1rem 1.5rem;
+}
+
+.modal-body::-webkit-scrollbar {
+  width: 8px;
+}
+
+.modal-body::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+}
+
+.modal-body::-webkit-scrollbar-thumb {
+  background: #cbd5e0;
+  border-radius: 4px;
+}
+
+.modal-body::-webkit-scrollbar-thumb:hover {
+  background: #a0aec0;
+}

@@ -1,0 +1,19 @@
+{
+  "1": [
+    { "id": 101, "name": "Binondo", "lgu_id": 1 },
+    { "id": 102, "name": "Intramuros", "lgu_id": 1 },
+    { "id": 103, "name": "Tondo", "lgu_id": 1 },
+    { "id": 104, "name": "San Miguel", "lgu_id": 1 }
+  ],
+  "2": [
+    { "id": 201, "name": "Barangay 1", "lgu_id": 2 },
+    { "id": 202, "name": "Barangay 2", "lgu_id": 2 },
+    { "id": 203, "name": "Barangay 3", "lgu_id": 2 }
+  ],
+  "3": [
+    { "id": 301, "name": "Barangay 1", "lgu_id": 3 },
+    { "id": 302, "name": "Barangay 2", "lgu_id": 3 }
+  ],
+  "4": [{ "id": 401, "name": "Barangay 1", "lgu_id": 4 }],
+  "5": [{ "id": 501, "name": "Barangay 1", "lgu_id": 5 }]
+}

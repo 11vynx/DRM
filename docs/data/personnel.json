@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "personnel_name": "John Doe",
+    "position": "Chief",
+    "agency": "Bureau of Fire Protection",
+    "contact": "555-0001",
+    "status": "Active",
+    "assigned_to": "Manila Fire Station"
+  },
+  {
+    "id": 2,
+    "personnel_name": "Jane Smith",
+    "position": "Firefighter",
+    "agency": "Bureau of Fire Protection",
+    "contact": "555-0002",
+    "status": "Active",
+    "assigned_to": "Manila Fire Station"
+  },
+  {
+    "id": 3,
+    "personnel_name": "Robert Johnson",
+    "position": "Paramedic",
+    "agency": "Bureau of Fire Protection",
+    "contact": "555-0003",
+    "status": "Active",
+    "assigned_to": "Emergency Response Center"
+  },
+  {
+    "id": 4,
+    "personnel_name": "Maria Garcia",
+    "position": "Dispatcher",
+    "agency": "Bureau of Fire Protection",
+    "contact": "555-0004",
+    "status": "Active",
+    "assigned_to": "Emergency Response Center"
+  }
+]
