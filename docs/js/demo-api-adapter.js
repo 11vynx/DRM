@@ -114,14 +114,28 @@ const DEMO_API_ADAPTER = {
   handleLogin(url, options) {
     const body = JSON.parse(options.body || "{}");
 
+    // Create a simple JWT-like token with email encoded
+    const email = body.email || "demo@example.com";
+    const header = btoa(JSON.stringify({ alg: "HS256", typ: "JWT" }));
+    const payload = btoa(
+      JSON.stringify({
+        email: email,
+        role: "admin",
+        iat: Math.floor(Date.now() / 1000),
+      }),
+    );
+    const signature = btoa("demo-signature");
+    const token = `${header}.${payload}.${signature}`;
+
     // Mock successful login
     const mockResponse = {
       success: true,
-      token: "demo-jwt-token-" + Date.now(),
+      message: "Login successful",
+      token: token,
       user: {
         id: 1,
-        username: body.username || "demo_user",
-        email: body.email || "demo@example.com",
+        username: email.split("@")[0] || "admin",
+        email: email,
         role: "admin",
         created_at: new Date().toISOString(),
       },
