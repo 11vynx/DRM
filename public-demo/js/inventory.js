@@ -1,7 +1,7 @@
 const adminToken = localStorage.getItem("adminToken");
 if (!adminToken) {
   alert("Please login as admin first");
-  window.location.href = "admin.html";
+  window.location.href = "index.html";
 }
 
 async function loadData() {
@@ -18,7 +18,7 @@ async function loadData() {
 
     if (!equipmentResponse.ok) {
       throw new Error(
-        `Failed to load equipment: ${equipmentResponse.status} ${equipmentResponse.statusText}`
+        `Failed to load equipment: ${equipmentResponse.status} ${equipmentResponse.statusText}`,
       );
     }
 
@@ -35,7 +35,7 @@ async function loadData() {
 
     if (!vehiclesResponse.ok) {
       throw new Error(
-        `Failed to load vehicles: ${vehiclesResponse.status} ${vehiclesResponse.statusText}`
+        `Failed to load vehicles: ${vehiclesResponse.status} ${vehiclesResponse.statusText}`,
       );
     }
 
@@ -52,7 +52,7 @@ async function loadData() {
 
     if (!personnelResponse.ok) {
       throw new Error(
-        `Failed to load personnel: ${personnelResponse.status} ${personnelResponse.statusText}`
+        `Failed to load personnel: ${personnelResponse.status} ${personnelResponse.statusText}`,
       );
     }
 
@@ -80,11 +80,11 @@ async function loadData() {
             <td>${item.type}</td>
             <td><span class="quantity-badge">${item.quantity}</span></td>
             <td><span class="status-badge ${statusClass}">${
-          item.condition
-        }</span></td>
+              item.condition
+            }</span></td>
             <td><span class="condition-badge ${conditionClass}">${
-          item.condition
-        }</span></td>
+              item.condition
+            }</span></td>
             <td>${item.location || "N/A"}</td>`;
         row.onclick = () => showDetailsModal(item, "equipment");
       });
@@ -110,11 +110,11 @@ async function loadData() {
             <td>${item.name}</td>
             <td>${item.plate_number || "N/A"}</td>
             <td><span class="status-badge ${statusClass}">${
-          item.condition
-        }</span></td>
+              item.condition
+            }</span></td>
             <td><span class="condition-badge ${conditionClass}">${
-          item.condition
-        }</span></td>
+              item.condition
+            }</span></td>
             <td>${item.location || "N/A"}</td>`;
         row.onclick = () => showDetailsModal(item, "vehicle");
       });
@@ -141,8 +141,8 @@ async function loadData() {
             <td>${item.role}</td>
             <td>${trainingsDisplay}</td>
             <td><span class="status-badge ${statusClass}">${
-          item.status
-        }</span></td>
+              item.status
+            }</span></td>
             <td>${item.contact || "N/A"}</td>`;
         row.onclick = () => showDetailsModal(item, "personnel");
       });
@@ -205,12 +205,12 @@ function showDetailsModal(item, type) {
   footer.innerHTML = footerHtml;
 
   const actionButtons = footer.querySelectorAll(
-    "button:not([data-bs-dismiss])"
+    "button:not([data-bs-dismiss])",
   );
   actionButtons.forEach((btn) => {
     btn.addEventListener("click", () => {
       const modalInstance = bootstrap.Modal.getInstance(
-        document.getElementById("itemDetailModal")
+        document.getElementById("itemDetailModal"),
       );
       modalInstance.hide();
     });
@@ -303,16 +303,16 @@ async function updateInventoryOverview() {
 
     const totalEquipment = equipment.reduce(
       (sum, item) => sum + (item.quantity || 1),
-      0
+      0,
     );
     const goodEquipment = equipment.filter(
-      (item) => item.condition === "Good"
+      (item) => item.condition === "Good",
     ).length;
     const damagedEquipment = equipment.filter(
-      (item) => item.condition === "Damaged"
+      (item) => item.condition === "Damaged",
     ).length;
     const maintenanceEquipment = equipment.filter(
-      (item) => item.condition === "Under Maintenance"
+      (item) => item.condition === "Under Maintenance",
     ).length;
 
     document.getElementById("totalEquipment").textContent = totalEquipment;
@@ -325,24 +325,24 @@ async function updateInventoryOverview() {
     const totalVehicles = vehicles.length;
     const availableVehicles = vehicles.length;
     const goodVehicles = vehicles.filter(
-      (item) => item.condition === "Good"
+      (item) => item.condition === "Good",
     ).length;
     const damagedVehicles = vehicles.filter(
-      (item) => item.condition === "Damaged"
+      (item) => item.condition === "Damaged",
     ).length;
     const maintenanceVehicles = vehicles.filter(
-      (item) => item.condition === "Under Maintenance"
+      (item) => item.condition === "Under Maintenance",
     ).length;
 
     const totalPersonnel = personnel.length;
     const availablePersonnel = personnel.filter(
-      (item) => item.status === "Available"
+      (item) => item.status === "Available",
     ).length;
     const deployedPersonnel = personnel.filter(
-      (item) => item.status === "Deployed"
+      (item) => item.status === "Deployed",
     ).length;
     const onLeavePersonnel = personnel.filter(
-      (item) => item.status === "On Leave"
+      (item) => item.status === "On Leave",
     ).length;
 
     document.getElementById("totalEquipment").textContent = totalEquipment;
@@ -572,7 +572,7 @@ function setCurrentDate() {
   };
   document.getElementById("currentDate").textContent = now.toLocaleDateString(
     "en-US",
-    options
+    options,
   );
 }
 

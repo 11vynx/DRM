@@ -1,6 +1,6 @@
 const adminToken = localStorage.getItem("adminToken");
 if (adminToken) {
-  window.location.href = "admin.html";
+  window.location.href = "index.html";
 }
 
 document.getElementById("loginForm").addEventListener("submit", async (e) => {
@@ -48,7 +48,7 @@ document.getElementById("loginForm").addEventListener("submit", async (e) => {
       progress.style.width = "100%";
 
       setTimeout(() => {
-        window.location.href = "admin.html";
+        window.location.href = "index.html";
       }, 1000);
     } else {
       messageDiv.className = "message error";

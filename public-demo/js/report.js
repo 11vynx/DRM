@@ -1,7 +1,7 @@
 const adminToken = localStorage.getItem("adminToken");
 if (!adminToken) {
   alert("Please login as admin first");
-  window.location.href = "admin.html";
+  window.location.href = "index.html";
 }
 
 const NON_EMERGENCY_TYPE_KEYS = new Set([
@@ -122,5 +122,5 @@ document.getElementById("reportForm").addEventListener("submit", async (e) => {
 
 function logout() {
   localStorage.removeItem("adminToken");
-  window.location.href = "admin.html";
+  window.location.href = "index.html";
 }
