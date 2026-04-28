@@ -303,8 +303,15 @@ const DEMO_API_ADAPTER = {
       }
       if (pathname === "/api/map/config") {
         return this.createResponse({
-          center: [14.5995, 120.9842],
+          center: {
+            lat: 14.5994,
+            lng: 120.9842,
+          },
           zoom: 10,
+          south: 14.2,
+          west: 120.7,
+          north: 14.9,
+          east: 121.2,
           provider: "OpenStreetMap",
         });
       }
