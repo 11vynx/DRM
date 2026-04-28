@@ -1,0 +1,17 @@
+[
+  {
+    "id": 101,
+    "lgu": "Manila City",
+    "code": "MNL-001"
+  },
+  {
+    "id": 102,
+    "lgu": "Quezon City",
+    "code": "QC-001"
+  },
+  {
+    "id": 103,
+    "lgu": "Caloocan City",
+    "code": "CLC-001"
+  }
+]

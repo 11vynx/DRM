@@ -18,35 +18,68 @@ const DEMO_API_ADAPTER = {
     "/api/admin/all-incidents": "./data/incidents.json",
     "/api/admin/portals": "./data/portals.json",
     "/api/agency-manifests": "./data/manifests.json",
-    "/api/admin/lgu-users": "./data/users.json",
-    "/api/admin/agency-users": "./data/users.json",
-    "/api/admin/imt-users": "./data/users.json",
+    "/api/admin/lgu-users": "./data/lgu-users.json",
+    "/api/admin/agency-users": "./data/agency-users.json",
+    "/api/admin/imt-users": "./data/imt-users.json",
     "/api/admin/agency-check-ins": "./data/check-ins.json",
     "/api/admin/post-incident-reports": "./data/reports.json",
+  },
+
+  normalizeIncidentRecord(incident = {}) {
+    return {
+      ...incident,
+      title:
+        incident.title ||
+        incident.incident_name ||
+        incident.name ||
+        "Untitled Incident",
+      type:
+        incident.type ||
+        incident.incident_type ||
+        incident.disaster_type ||
+        "Unknown",
+      status: String(incident.status || "active").toLowerCase(),
+      latitude:
+        typeof incident.latitude === "number"
+          ? incident.latitude
+          : parseFloat(incident.latitude),
+      longitude:
+        typeof incident.longitude === "number"
+          ? incident.longitude
+          : parseFloat(incident.longitude),
+    };
   },
 
   // API response wrappers - customize how data is returned
   wrapApiResponse(pathname, data) {
     if (pathname === "/api/admin/all-incidents") {
-      return { incidents: data };
+      return {
+        success: true,
+        incidents: Array.isArray(data)
+          ? data.map((incident) => this.normalizeIncidentRecord(incident))
+          : [],
+      };
     }
     if (pathname === "/api/admin/portals") {
-      return { portals: data };
+      return { success: true, portals: Array.isArray(data) ? data : [] };
+    }
+    if (pathname.startsWith("/api/agency-manifests")) {
+      return { success: true, data: Array.isArray(data) ? data : [] };
     }
     if (pathname.startsWith("/api/admin/agency-check-ins")) {
-      return { checkIns: data };
+      return { success: true, manifests: Array.isArray(data) ? data : [] };
     }
     if (pathname.startsWith("/api/admin/post-incident-reports")) {
-      return { reports: data };
+      return { success: true, reports: Array.isArray(data) ? data : [] };
     }
     if (pathname.startsWith("/api/admin/lgu-users")) {
-      return { users: data };
+      return { success: true, users: Array.isArray(data) ? data : [] };
     }
     if (pathname.startsWith("/api/admin/agency-users")) {
-      return { users: data };
+      return { success: true, users: Array.isArray(data) ? data : [] };
     }
     if (pathname.startsWith("/api/admin/imt-users")) {
-      return { users: data };
+      return { success: true, users: Array.isArray(data) ? data : [] };
     }
     return data;
   },
@@ -87,16 +120,16 @@ const DEMO_API_ADAPTER = {
 
     // Check pattern matches for parameterized routes
     if (pathname.startsWith("/api/barangays/")) {
-      return "/data/barangays.json";
+      return "./data/barangays.json";
     }
     if (pathname.startsWith("/api/agency-manifest/")) {
-      return "/data/manifests.json";
+      return "./data/manifests.json";
     }
     if (pathname.startsWith("/api/lgu/my-incidents/")) {
-      return "/data/incidents.json";
+      return "./data/incidents.json";
     }
     if (pathname.startsWith("/api/admin/incident/")) {
-      return "/data/incidents.json";
+      return "./data/incidents.json";
     }
 
     return null;
@@ -292,19 +325,22 @@ const DEMO_API_ADAPTER = {
 
       // Provide fallback data for unmapped endpoints
       if (pathname === "/api/admin/agency-check-ins") {
-        return this.createResponse({ checkIns: [] });
+        return this.createResponse({ success: true, manifests: [] });
       }
       if (pathname === "/api/admin/post-incident-reports") {
-        return this.createResponse({ reports: [] });
+        return this.createResponse({ success: true, reports: [] });
       }
       if (pathname.startsWith("/api/admin/lgu-users")) {
-        return this.createResponse({ users: [] });
+        return this.createResponse({ success: true, users: [] });
       }
       if (pathname.startsWith("/api/admin/agency-users")) {
-        return this.createResponse({ users: [] });
+        return this.createResponse({ success: true, users: [] });
       }
       if (pathname.startsWith("/api/admin/imt-users")) {
-        return this.createResponse({ users: [] });
+        return this.createResponse({ success: true, users: [] });
+      }
+      if (pathname === "/api/agency-manifests") {
+        return this.createResponse({ success: true, data: [] });
       }
       if (pathname === "/api/map/config") {
         return this.createResponse({
