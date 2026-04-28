@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="js/demo-api-adapter.js"></script>
+    <title>DRM - Operation Chief Login</title>
+    <link rel="stylesheet" href="css/chieflogin.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="logo">
+        <h1>DRM</h1>
+        <div class="tagline">Section Chief Login</div>
+      </div>
+
+      <div id="message" class="message"></div>
+
+      <form id="loginForm">
+        <div class="form-group">
+          <label for="email">Username</label>
+          <input
+            type="text"
+            id="email"
+            name="email"
+            required
+            placeholder="Enter your username"
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" id="password" name="password" required />
+        </div>
+
+        <button type="submit" class="btn" id="submitBtn">Sign In</button>
+      </form>
+
+      <div class="progress-bar" id="progressBar">
+        <div class="progress" id="progress"></div>
+      </div>
+    </div>
+    <script src="js/chieflogin.js"></script>
+  </body>
+</html>

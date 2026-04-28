@@ -1,0 +1,513 @@
+:root {
+  --gov-blue: #0038a8;
+  --gov-red: #ce1126;
+  --gov-yellow: #fcd116;
+  --gov-white: #ffffff;
+
+  --bg-color: #e5e7eb;
+  --text-main: #1f2937;
+  --text-muted: #6b7280;
+  --border-color: #d1d5db;
+  --focus-ring: rgba(0, 56, 168, 0.25);
+}
+
+body {
+  font-family: "Segoe UI", "Roboto", Helvetica, Arial, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  margin: 0;
+  padding: 10px;
+  line-height: 1.5;
+}
+
+.greeting-screen {
+  background: rgba(17, 24, 39, 0.95);
+  backdrop-filter: blur(5px);
+  color: white;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+  transition: opacity 0.3s ease;
+}
+
+.greeting-screen.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.greeting-content {
+  background: #1f2937;
+  padding: 40px;
+  border-left: 5px solid var(--gov-red);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+  max-width: 500px;
+  width: 90%;
+}
+
+.greeting-screen h1 {
+  margin: 0 0 10px 0;
+  font-family: "Courier New", monospace;
+  letter-spacing: -1px;
+}
+
+.container {
+  max-width: 100%;
+  margin: 0 auto;
+  background: white;
+  box-shadow:
+    0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  border-top: 8px solid var(--gov-blue);
+  position: relative;
+}
+
+.gov-header {
+  padding: 2rem;
+  background: white;
+  border-bottom: 1px solid var(--border-color);
+  position: relative;
+}
+
+.gov-header::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(
+    90deg,
+    var(--gov-blue) 33%,
+    var(--gov-red) 33%,
+    var(--gov-red) 66%,
+    var(--gov-yellow) 66%
+  );
+  display: none;
+}
+
+.gov-header-content {
+  display: grid;
+  grid-template-columns: 100px 1fr 100px;
+  gap: 20px;
+  align-items: center;
+}
+
+.agency-logo img {
+  width: 90px;
+  height: 90px;
+  object-fit: contain;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+}
+
+.header-text {
+  text-align: center;
+  font-family: "Times New Roman", serif;
+}
+
+.republic-text {
+  display: block;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--text-muted);
+}
+
+.province-text {
+  display: block;
+  font-size: 1rem;
+  font-weight: bold;
+  margin-top: 4px;
+}
+
+.office-text {
+  display: block;
+  font-size: 1.25rem;
+  font-weight: 900;
+  color: var(--gov-blue);
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
+.form-title {
+  font-family: "Segoe UI", sans-serif;
+  background: var(--text-main);
+  color: white;
+  display: inline-block;
+  padding: 5px 15px;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin: 0;
+}
+
+.status-bar {
+  background: #f3f4f6;
+  border-top: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--border-color);
+  padding: 8px 2rem;
+  font-family: "Courier New", monospace;
+  font-size: 0.85rem;
+  display: flex;
+  justify-content: space-between;
+  color: var(--text-main);
+}
+
+#manifestForm {
+  padding: 1.5rem;
+}
+
+.manifest-section {
+  margin-bottom: 3rem;
+  background: white;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  border-bottom: 2px solid var(--gov-blue);
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.5rem;
+}
+
+.manifest-section h2 {
+  color: var(--gov-blue);
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  margin: 0;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.checkin-mode-box {
+  margin-top: 1rem;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 1rem;
+  background: #f8fafc;
+}
+
+.checkin-flow-card {
+  width: min(640px, 92vw);
+  background: #0f172a;
+  border-left: 5px solid #2563eb;
+}
+
+.checkin-step-title {
+  margin: 0 0 0.35rem;
+  color: #f8fafc;
+  font-size: 1.35rem;
+}
+
+.checkin-step-subtitle {
+  margin: 0 0 1rem;
+  color: #cbd5e1;
+  font-size: 0.95rem;
+}
+
+#checkInModeScreen .greeting-content,
+#agencyLoginScreen .greeting-content {
+  padding-top: 28px;
+  padding-bottom: 28px;
+}
+
+.checkin-choice-actions {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+
+#checkInModeScreen .checkin-choice-actions {
+  margin-bottom: 0;
+}
+
+.checkin-choice-actions .mode-btn {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  font-size: 0.95rem;
+  font-weight: 700;
+  border-color: #93c5fd;
+  color: #1d4ed8;
+}
+
+.checkin-choice-actions .mode-btn:hover {
+  background: #eff6ff;
+}
+
+.checkin-mode-title {
+  margin: 0 0 0.8rem;
+  font-size: 0.95rem;
+  color: var(--gov-blue);
+  font-weight: 700;
+}
+
+.checkin-mode-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.mode-btn {
+  border: 1px solid var(--gov-blue);
+  background: white;
+  color: var(--gov-blue);
+  border-radius: 6px;
+  padding: 0.5rem 0.75rem;
+}
+
+.mode-btn.active {
+  background: var(--gov-blue);
+  color: white;
+}
+
+.agency-login-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 0.75rem;
+}
+
+.checkin-flow-card .form-group label {
+  color: #e2e8f0;
+}
+
+.checkin-flow-card input {
+  background: #111827;
+  border-color: #374151;
+  color: #f8fafc;
+}
+
+.checkin-flow-card input:focus {
+  border-color: #60a5fa;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.25);
+  background: #0b1220;
+}
+
+.agency-login-tools {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-top: 0.75rem;
+}
+
+.agency-login-tools button,
+.agency-login-tools a {
+  border: 1px solid #475569;
+  border-radius: 6px;
+  padding: 0.5rem 0.75rem;
+  background: #1f2937;
+  color: #e2e8f0;
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+
+.agency-login-tools button:hover,
+.agency-login-tools a:hover {
+  background: #334155;
+}
+
+.agency-status {
+  margin: 0.5rem 0 0;
+  font-size: 0.85rem;
+  color: #e2e8f0;
+}
+
+label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-main);
+  margin-bottom: 0.4rem;
+}
+
+.required {
+  color: var(--gov-red);
+}
+
+input,
+select {
+  padding: 10px 12px;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  font-size: 1rem;
+  transition: all 0.2s;
+  background: #f9fafb;
+}
+
+input:focus,
+select:focus {
+  outline: none;
+  border-color: var(--gov-blue);
+  box-shadow: 0 0 0 3px var(--focus-ring);
+  background: white;
+}
+
+.table-wrapper {
+  overflow-x: auto;
+  overflow-y: hidden;
+  border: 1px solid var(--border-color);
+  margin-bottom: 1rem;
+  -webkit-overflow-scrolling: touch;
+}
+
+.dynamic-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.85rem;
+  table-layout: fixed;
+}
+
+.dynamic-table th {
+  background: #f3f4f6;
+  color: var(--text-main);
+  font-weight: 700;
+  text-align: left;
+  padding: 8px;
+  border-bottom: 2px solid #d1d5db;
+  white-space: normal;
+  word-wrap: break-word;
+  font-size: 0.8rem;
+}
+
+.dynamic-table td {
+  padding: 6px 8px;
+  border-bottom: 1px solid #e5e7eb;
+  vertical-align: middle;
+  word-break: break-word;
+}
+
+.dynamic-table tr:hover {
+  background-color: #f9fafb;
+}
+
+.dynamic-table input,
+.dynamic-table select {
+  width: 100%;
+  padding: 4px 6px;
+  font-size: 0.8rem;
+  border: 1px solid transparent;
+  background: transparent;
+  box-sizing: border-box;
+}
+
+.dynamic-table input:hover {
+  border-color: #d1d5db;
+  background: white;
+}
+
+.dynamic-table input:focus {
+  border-color: var(--gov-blue);
+  background: white;
+}
+
+.total-display {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+.total-display strong {
+  color: var(--gov-blue);
+  font-size: 1.1rem;
+}
+
+button {
+  cursor: pointer;
+  font-family: inherit;
+  font-weight: 600;
+  transition: all 0.2s;
+}
+
+.btn-add {
+  background: transparent;
+  color: var(--gov-blue);
+  border: 1px dashed var(--gov-blue);
+  padding: 10px 20px;
+  width: 100%;
+  text-align: center;
+  border-radius: 4px;
+}
+
+.btn-add:hover {
+  background: #eff6ff;
+}
+
+.form-actions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border-color);
+}
+
+.btn-submit {
+  background: var(--gov-blue);
+  color: white;
+  border: none;
+  padding: 12px 30px;
+  font-size: 1rem;
+  border-radius: 4px;
+  flex: 2;
+}
+
+.btn-submit:hover {
+  background: #00287a;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.btn-reset {
+  background: white;
+  color: var(--text-muted);
+  border: 1px solid var(--border-color);
+  padding: 12px 20px;
+  border-radius: 4px;
+  flex: 1;
+}
+
+.btn-reset:hover {
+  background: #f3f4f6;
+  color: var(--gov-red);
+  border-color: #fca5a5;
+}
+
+@media (max-width: 768px) {
+  .gov-header-content {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 10px;
+  }
+
+  .agency-logo {
+    justify-content: center;
+  }
+
+  .status-bar {
+    flex-direction: column;
+    gap: 5px;
+    text-align: center;
+  }
+
+  .form-actions {
+    flex-direction: column;
+  }
+
+  .checkin-choice-actions {
+    grid-template-columns: 1fr;
+  }
+}
